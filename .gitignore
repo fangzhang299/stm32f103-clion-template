@@ -1,0 +1,12 @@
+# Build output
+build/
+
+# IDE (CLion)
+.idea/
+
+# STM32CubeMX metadata (project is not CubeMX-generated anymore)
+.mxproject
+*.ioc
+
+# Keil backup of the startup file (not used by the GCC build)
+Start/startup_stm32f10x_md.keil.s
