@@ -40,7 +40,7 @@ git clone https://github.com/fangzhang299/stm32f103-clion-template.git
      ```
      -DCMAKE_TOOLCHAIN_FILE=<项目路径>/cmake/gcc-arm-none-eabi.cmake
      ```
-   - 或者直接在 CMake 工具窗口中切换到 `CMakePresets.json` 里的 **Debug 预设**
+   - 或者直接在 弹出的CMake 工具窗口中切换到 `CMakePresets.json` 里的 **Debug 预设**（必须取消勾选默认的Debug，使能Debug 预设）
 3. **重新加载**：**Tools → CMake → Reload CMake Project**
 4. **构建**：点击运行/构建按钮，生成 `build/Clion_STL_model.elf`
 5. **烧录**：接好 ST-Link（SWDIO→PA13、SWCLK→PA14、GND、3.3V），运行 OpenOCD 配置或执行：
