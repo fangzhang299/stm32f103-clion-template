@@ -35,14 +35,18 @@ git clone https://github.com/fangzhang299/stm32f103-clion-template.git
 
 1. **打开项目**：用 CLion 打开仓库文件夹（包含 `CMakeLists.txt` 的那一层）
 2. **配置工具链**（重要，否则会用 MinGW 编译报错）：
-   - 菜单 **Settings → Build, Execution, Deployment → CMake**
-   - 选中 **Debug** profile，在 **CMake options** 栏填写：
+  - 直接在 弹出的CMake 工具窗口中切换到 `CMakePresets.json` 里的 **Debug 预设**（必须取消勾选默认的Debug，使能Debug 预设）<img width="617" height="524" alt="屏幕截图 2026-08-26 155629" src="https://github.com/user-attachments/assets/156aaf3c-4987-4b84-916c-64e3bb5231c0" />
+
+  - **或者**
+  - 菜单 **Settings → Build, Execution, Deployment → CMake**
+  - 选中 **Debug** profile，在 **CMake options** 栏填写：
      ```
      -DCMAKE_TOOLCHAIN_FILE=<项目路径>/cmake/gcc-arm-none-eabi.cmake
      ```
-   - 或者直接在 弹出的CMake 工具窗口中切换到 `CMakePresets.json` 里的 **Debug 预设**（必须取消勾选默认的Debug，使能Debug 预设）
+   
 3. **重新加载**：**Tools → CMake → Reload CMake Project**
-4. **构建**：点击运行/构建按钮，生成 `build/Clion_STL_model.elf`
+4. **构建**：点击运行/构建按钮，生成 `build/Clion_STL_model.elf`<img width="1037" height="727" alt="屏幕截图 2026-08-26 155700" src="https://github.com/user-attachments/assets/152c9651-8c37-486c-8773-1b1d9aad005c" />
+
 5. **烧录**：接好 ST-Link（SWDIO→PA13、SWCLK→PA14、GND、3.3V），运行 OpenOCD 配置或执行：
    ```bash
    openocd -f stm32f103c8_blue_pill.cfg \
@@ -78,13 +82,20 @@ adapter speed 500                       # ④ 降低 SWD 速度（克隆 ST-Link
 ### 2. 在 CLion 中新建 OpenOCD 运行配置
 
 1. 菜单 **Run → Edit Configurations…**
+
+<img width="1031" height="456" alt="屏幕截图 2026-08-26 155723" src="https://github.com/user-attachments/assets/721e3a38-6190-40c6-8375-7e232af5d93e" />                                       
 2. 点左上角 **+** → 选择 **OpenOCD Download & Run**
+
+<img width="599" height="517" alt="屏幕截图 2026-08-26 155740" src="https://github.com/user-attachments/assets/afc1783d-1ad5-463e-a2a7-e484adaa2edc" />
 3. 填写：
    - **Executable**：`build/Clion_STL_model.elf`
    - **Config options**：`-f stm32f103c8_blue_pill.cfg`
+
+<img width="897" height="533" alt="屏幕截图 2026-08-26 155825" src="https://github.com/user-attachments/assets/8525d11b-dabe-4e7d-9c1f-aeda64044c93" />
 4. 勾选 **Download before run**（烧录后自动运行）
 5. 点 **运行 ▶** 烧录到板子；点 **调试 🐞** 进入在线调试（断点、单步、查看变量）
 
+<img width="1037" height="725" alt="屏幕截图 2026-08-26 155840" src="https://github.com/user-attachments/assets/a0102c42-0510-4325-8ecd-fcec74a01e45" />
 > 若 CLion 里没有 "OpenOCD Download & Run" 类型，选择 **Embedded GDB Server**，在 Interface 中选 OpenOCD，并填入相同的 Config options。
 
 ---
