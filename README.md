@@ -10,7 +10,6 @@
 
 - 基于江科大 STM32F10x 标准库模板（SPL），保留其经典目录结构，可直接在其基础上添加外设
 - 最小可构建固件：CLion 一键编译 / 烧录 / 调试
-- 自带板级外设驱动：LED、按键、OLED（0.96 寸 SSD1306）
 - GNU 格式启动文件（`startup_stm32f10x_md.s`），矢量表完整，弱符号中断处理可在 `stm32f10x_it.c` 中覆盖
 - CMSIS 5 内核层 + SPL 标准外设库
 - 自带 OpenOCD 烧录配置（`stm32f103c8_blue_pill.cfg`，适配 ST-Link + SWD）
@@ -77,7 +76,6 @@ git clone https://github.com/fangzhang299/stm32f103-clion-template.git
 source [find interface/stlink.cfg]      # ① 加载 ST-Link 接口
 transport select swd                    # ② 选择 SWD 传输方式
 source [find target/stm32f1x.cfg]       # ③ 加载 STM32F103 目标芯片
-adapter speed 500                       # ④ 降低 SWD 速度（克隆 ST-Link 更稳定）
 ```
 
 - 如果用的是 **J-Link / DAP-Link**，把 `interface/stlink.cfg` 换成 `interface/jlink.cfg` 或 `interface/cmsis-dap.cfg` 即可
