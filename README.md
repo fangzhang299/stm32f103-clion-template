@@ -35,8 +35,7 @@ git clone https://github.com/fangzhang299/stm32f103-clion-template.git
 
 1. **打开项目**：用 CLion 打开仓库文件夹（包含 `CMakeLists.txt` 的那一层）
 2. **配置工具链**（重要，否则会用 MinGW 编译报错）：
-  - 直接在 弹出的CMake 工具窗口中切换到 `CMakePresets.json` 里的 **Debug 预设**（必须取消勾选默认的Debug，使能Debug 预设，确保参数“--preset Debug”的添加）
-  - <img width="617" height="524" alt="屏幕截图 2026-08-26 155629" src="https://github.com/user-attachments/assets/156aaf3c-4987-4b84-916c-64e3bb5231c0" />
+  - 直接在 弹出的CMake 工具窗口中切换到 `CMakePresets.json` 里的 **Debug 预设**（必须取消勾选默认的Debug，使能Debug 预设）<img width="617" height="524" alt="屏幕截图 2026-08-26 155629" src="https://github.com/user-attachments/assets/156aaf3c-4987-4b84-916c-64e3bb5231c0" />
 
   - **或者：**
   - 菜单 **Settings → Build, Execution, Deployment → CMake**
