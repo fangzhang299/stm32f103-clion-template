@@ -45,7 +45,7 @@ git clone https://github.com/fangzhang299/stm32f103-clion-template.git
      ```
      -DCMAKE_TOOLCHAIN_FILE=<项目路径>/cmake/gcc-arm-none-eabi.cmake
      ```
-  注意：“--p reset Debug”的添加保证了交叉编译器在此项目的正确使用方法，即指定了CMake 真正需要的“工具链文件”，所以你既可以用预设的Cmake配置（已在CMakePresets.json中为你配置好，可直接选择使用），也可以不使用预设，手动在 CMake options 栏填写指定配置文件路径，此时注意工具链的选择不影响Cmake构建，因为Cmake配置文件将工具链选择做了覆盖操作，前提是你的环境变量中添加了交叉编译器的路径，如果你没用将交叉编译器添加到环境变量中，你可以为Clion设置STM32的工具链，并选择，再将配置文件中指定交叉编译器路径的相关语句注释掉，也能够构建成功。
+  注意：“--preset Debug”的添加保证了交叉编译器在此项目的正确使用方法，即指定了CMake 真正需要的“工具链文件”，所以你既可以用预设的Cmake配置（已在CMakePresets.json中为你配置好，可直接选择使用），也可以不使用预设，手动在 CMake options 栏填写指定配置文件路径，此时注意工具链的选择不影响Cmake构建，因为Cmake配置文件将工具链选择做了覆盖操作，前提是你的环境变量中添加了交叉编译器的路径，如果你没用将交叉编译器添加到环境变量中，你可以为Clion设置STM32的工具链，并选择，再将配置文件中指定交叉编译器路径的相关语句注释掉，也能够构建成功。
 
 3. **重新加载**：**Tools → CMake → Reload CMake Project**
 4. **构建**：点击运行/构建按钮，生成 `build/Clion_STL_model.elf`
