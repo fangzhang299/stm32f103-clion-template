@@ -4,7 +4,7 @@ set(CMAKE_SYSTEM_PROCESSOR          arm)
 set(CMAKE_C_COMPILER_ID GNU)
 set(CMAKE_CXX_COMPILER_ID GNU)
 
-# Some default GCC settings
+# Some default GCC settings，从环境变量中提取交叉编译器路径，没有设置环境变量请注释这些代码，并手动指定工具链！！！！！！
 # arm-none-eabi- must be part of path environment
 set(TOOLCHAIN_PREFIX                arm-none-eabi-)
 

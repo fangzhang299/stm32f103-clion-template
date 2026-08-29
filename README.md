@@ -34,7 +34,7 @@ git clone https://github.com/fangzhang299/stm32f103-clion-template.git
 ## 快速开始
 
 1. **打开项目**：用 CLion 打开仓库文件夹（包含 `CMakeLists.txt` 的那一层）
-2. **配置工具链**（重要，否则会用 MinGW 编译报错）：
+2. **配置Cmake配置文件**：
   - 直接在 弹出的CMake 工具窗口中切换到 `CMakePresets.json` 里的 **Debug 预设**（必须取消勾选默认的Debug，使能Debug 预设）<img width="617" height="524" alt="屏幕截图 2026-08-26 155629" src="https://github.com/user-attachments/assets/156aaf3c-4987-4b84-916c-64e3bb5231c0" />
 
   - **或者：**
@@ -43,7 +43,8 @@ git clone https://github.com/fangzhang299/stm32f103-clion-template.git
      ```
      -DCMAKE_TOOLCHAIN_FILE=<项目路径>/cmake/gcc-arm-none-eabi.cmake
      ```
-   
+  注意：“--p reset Debug”的添加保证了交叉编译器在此项目的正确使用方法，即指定了CMake 真正需要的“工具链文件”，所以你既可以用预设的Cmake配置（已在CMakePresets.json中为你配置好，可直接选择使用），也可以不使用预设，手动在 CMake options 栏填写指定配置文件路径，此时注意工具链的选择不影响Cmake构建，因为Cmake配置文件将工具链选择做了覆盖操作，前提是你的环境变量中添加了交叉编译器的路径，如果你没用将交叉编译器添加到环境变量中，你可以为Clion设置STM32的工具链，并选择，再将配置文件中指定交叉编译器路径的相关语句注释掉，也能够构建成功。
+
 3. **重新加载**：**Tools → CMake → Reload CMake Project**
 4. **构建**：点击运行/构建按钮，生成 `build/Clion_STL_model.elf`<img width="1037" height="727" alt="屏幕截图 2026-08-26 155700" src="https://github.com/user-attachments/assets/152c9651-8c37-486c-8773-1b1d9aad005c" />
 
